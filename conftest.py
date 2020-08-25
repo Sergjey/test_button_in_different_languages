@@ -8,7 +8,7 @@ def pytest_addoption(parser):
                      help="Choose browser: chrome or firefox")
     #добавляем обработчик, который считывает из командной строки, используемый язык интерфейса
     parser.addoption('--language', action='store', default="None",
-                     help="Choose language: ru, en, es, fr")
+                     help="Choose language:ru, en, es, fr")
 
 #Реализуем логику открытия заданного в консоли браузера и языка пользователя
 @pytest.fixture(scope="function")
