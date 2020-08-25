@@ -3,16 +3,17 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 def pytest_addoption(parser):
+    #добавляем обработчик, который считывает из командной строки, используемый браузер
     parser.addoption('--browser_name', action='store', default="chrome",
                      help="Choose browser: chrome or firefox")
+    #добавляем обработчик, который считывает из командной строки, используемый язык интерфейса
     parser.addoption('--language', action='store', default="None",
                      help="Choose language: ru, en, es, fr")
 
-
+#Реализуем логику открытия заданного в консоли браузера и языка пользователя
 @pytest.fixture(scope="function")
 def browser(request):
     browser_name = request.config.getoption("browser_name")
-    browser = None
     user_language = request.config.getoption("language")
     if browser_name == "chrome":
         options = Options()
