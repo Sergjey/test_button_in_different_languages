@@ -9,5 +9,5 @@ def test_button_in_different_languages(browser):
     # or: pytest -s -v --language=fr test_items.py
     button = browser.find_element_by_css_selector("[class='btn btn-lg btn-primary btn-add-to-basket']")
     assert button, "Oops, we can't find button"
-    #убеждаемся, что кнопку действительно нашли
+    #убеждаемся, что кнопку действительно нашли. без ручной проверки time.sleep()
     print('\n' + button.text)
